@@ -9,11 +9,15 @@
  ### 依赖
  
  ```
- implementation 'com.syn.ad:sdk:1.0.1'
+ implementation 'com.syn.ad:sdk:1.0.2'
  ```
 
 ## 支持的广告类型
 1. 开屏
+2. banner
+3. 插屏
+4. 信息流
+5. 激励视频
 
 ## 初始化
 
@@ -26,21 +30,58 @@ application里调用
 
 ## 加载广告
 
+
+
+
 ```
-SynAdView synAdView;
-
-        SynAdConfig synAdConfig = new SynAdConfig(context, posId, adType);
-
-        SynAd.loadAd(synAdConfig, new SynAdListener() {
+        SynAdConfig synAdConfig = new SynAdConfig(this, "1", SynAdType.FEED);
+        synAdConfig.setAdCount(1);
+        SynAd.loadAd(synAdConfig, new SynAdLoadListener() {
             @Override
             public void onAdLoadSuccess(List<SynAdView> adViewList) {
                 synAdView = adViewList.get(0);
-                
-                // 显示广告
-                synAdView.show(view_container);
             }
 
-
+            @Override
+            public void onAdLoadFail(SynErrorModel synErrorModel) {
+                super.onAdLoadFail(synErrorModel);
+            }
         });
 
 ```
+
+### SynAdConfig 广告请求配置
+
+
+   字段   | 是否必须|说明 | 备注
+---| --- | --- | ---
+context| 是 | 最好传activity | 
+posId | 是| 广告位ID|
+adType | 是| 广告位类型 | 开屏、插屏等
+adCount | 否 | 请求数量 | 默认为1 。最大为3
+width | 否 | 广告宽度 | 
+
+### SynAdType 广告请求类型
+
+建议使用别名，自动补全
+
+   ID   |别名 | 说明
+---| --- | ---
+1| SynAdType.SPLASH | 开屏
+2 | SynAdType.INTERSTITIAL|插屏
+3 | SynAdType.BANNER| banner
+4 | SynAdType.FEED | 信息流个
+7 | SynAdType.REWARD_VIDEO |激励视频
+
+## 显示广告
+
+
+
+
+# 更改记录
+## 1.0.2
+1. 拆分加载接口回调
+2. 完善文档
+
+## 1.0.1
+1. 初始化项目

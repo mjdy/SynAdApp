@@ -12,6 +12,10 @@ public class MainApplication extends Application {
         super.onCreate();
 
         SynSdkConfig synSdkConfig = new SynSdkConfig();
-        SynAd.init(this, "123456", synSdkConfig);
+        // 隐私权限设置。 1是允许，0是拒绝。 默认均是允许
+        synSdkConfig.setCanUsePhoneState(SynSdkConfig.PERMISSION_ON);
+        synSdkConfig.setCanUseAppList(SynSdkConfig.PERMISSION_OFF);
+
+        SynAd.init(this, "appId", synSdkConfig);
     }
 }
