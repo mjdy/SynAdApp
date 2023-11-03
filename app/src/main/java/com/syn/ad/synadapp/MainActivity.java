@@ -97,6 +97,7 @@ public class MainActivity extends Activity {
             Toast.makeText(MainActivity.this, "等待加载", Toast.LENGTH_LONG).show();
             return;
         }
+        // show的参数在 插屏，激励视频可以为null 。其他类型必须传入，为展示广告的容器
         synAdView.show(fl_container);
     }
 }

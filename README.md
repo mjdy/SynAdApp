@@ -17,7 +17,6 @@
 2. banner
 3. 插屏
 4. 信息流
-5. 激励视频
 
 ## 初始化
 
@@ -70,13 +69,37 @@ width | 否 | 广告宽度 |
 1| SynAdType.SPLASH | 开屏
 2 | SynAdType.INTERSTITIAL|插屏
 3 | SynAdType.BANNER| banner
-4 | SynAdType.FEED | 信息流个
-7 | SynAdType.REWARD_VIDEO |激励视频
+4 | SynAdType.FEED | 信息流
 
 ## 显示广告
 
+```
+       synAdView.setAdListener(new SynAdListener() {
+                    @Override
+                    public void onAdClose(SynAdView synAdView) {
+                        // 关闭回调
+                        AdLogUtil.log("ad close");
+                    }
 
+                    @Override
+                    public void onAdShow() {
+                        super.onAdShow();
+                        // 显示回调
+                        AdLogUtil.log("ad show");
+                    }
 
+                    @Override
+                    public void onAdClicked() {
+                        super.onAdClicked();
+                        // 点击回调
+                        AdLogUtil.log("ad click");
+                    }
+                });
+                
+  synAdView.show(fl_container);
+```
+
+> synAdView.show(viewContainer) 参数为显示广告的容器。插屏、激励视频可传null
 
 # 更改记录
 ## 1.0.2
