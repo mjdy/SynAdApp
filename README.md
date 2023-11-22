@@ -9,7 +9,7 @@
  ### 依赖
  
  ```
- implementation 'com.syn.ad:sdk:1.0.2'
+ implementation 'com.syn.ad:sdk:1.0.3'
  ```
 
 ## 支持的广告类型
@@ -33,7 +33,7 @@ application里调用
 
 
 ```
-        SynAdConfig synAdConfig = new SynAdConfig(this, "1", SynAdType.FEED);
+        SynAdConfig synAdConfig = new SynAdConfig(activity, "1", SynAdType.FEED);
         synAdConfig.setAdCount(1);
         SynAd.loadAd(synAdConfig, new SynAdLoadListener() {
             @Override
@@ -55,10 +55,11 @@ application里调用
    字段   | 是否必须|说明 | 备注
 ---| --- | --- | ---
 context| 是 | 最好传activity | 
-posId | 是| 广告位ID|
+posId | 是| 广告位ID| 测试ID：1
 adType | 是| 广告位类型 | 开屏、插屏等
 adCount | 否 | 请求数量 | 默认为1 。最大为3
 width | 否 | 广告宽度 | 
+shakeAble|否| 是否支持摇一摇 | 仅开屏生效，默认为true
 
 ### SynAdType 广告请求类型
 
@@ -102,6 +103,9 @@ width | 否 | 广告宽度 |
 > synAdView.show(viewContainer) 参数为显示广告的容器。插屏、激励视频可传null
 
 # 更改记录
+## 1.0.3
+1. 开屏支持摇一摇
+
 ## 1.0.2
 1. 拆分加载接口回调
 2. 完善文档

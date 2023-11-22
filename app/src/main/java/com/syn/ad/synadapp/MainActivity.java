@@ -50,8 +50,9 @@ public class MainActivity extends Activity {
      * 加载广告
      */
     private void loadAd() {
-        SynAdConfig synAdConfig = new SynAdConfig(this, "1", SynAdType.FEED); // 这三个字段必填
+        SynAdConfig synAdConfig = new SynAdConfig(this, "1", SynAdType.SPLASH); // 这三个字段必填
         synAdConfig.setAdCount(1); // 设置请求的广告数量。范围 1-3 。注意，该字段仅为预期，并不保证一定为该数量。举例：请求3条。实际可能只返回1条。以onAdLoadSuccess里的adViewList为准
+        synAdConfig.setShakeAble(true); //是否支持摇一摇。仅限 开屏。默认为true
         SynAd.loadAd(synAdConfig, new SynAdLoadListener() {
             @Override
             public void onAdLoadSuccess(List<SynAdView> adViewList) {
