@@ -9,7 +9,7 @@
  ### 依赖
  
  ```
- implementation 'com.syn.ad:sdk:1.0.3'
+ implementation 'com.syn.ad:sdk:1.0.4'
  ```
 
 ## 支持的广告类型
@@ -103,6 +103,9 @@ shakeAble|否| 是否支持摇一摇 | 仅开屏生效，默认为true
 > synAdView.show(viewContainer) 参数为显示广告的容器。插屏、激励视频可传null
 
 # 更改记录
+
+## 1.0.4
+1. 升级为https
 ## 1.0.3
 1. 开屏支持摇一摇
 
