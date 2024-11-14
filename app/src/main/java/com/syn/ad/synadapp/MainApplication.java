@@ -15,6 +15,7 @@ public class MainApplication extends Application {
         // 隐私权限设置。 1是允许，0是拒绝。 默认均是允许
         synSdkConfig.setCanUsePhoneState(SynSdkConfig.PERMISSION_ON);
         synSdkConfig.setCanUseAppList(SynSdkConfig.PERMISSION_OFF);
+        synSdkConfig.setOaid("your oaid");
 
         SynAd.init(this, "appId", synSdkConfig);
     }
