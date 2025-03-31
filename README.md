@@ -8,7 +8,7 @@
 ### 依赖
 
  ```
- 		implementation 'com.syn.ad:sdk:1.0.5.bd'
+ 		implementation 'com.syn.ad:sdk:1.0.6.bd'
  ```
 
 
@@ -104,7 +104,7 @@ adType | 是| 广告位类型 | draw
 
 # 更改记录
 
-## 1.0.5.bd
+## 1.0.6.bd
 1. 提供物料
 
 ## 1.0.4
