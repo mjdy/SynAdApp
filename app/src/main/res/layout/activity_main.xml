@@ -12,7 +12,13 @@
         android:id="@+id/btn_load"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="加载广告"></Button>
+        android:text="异步加载广告"></Button>
+
+    <Button
+        android:id="@+id/btn_load_sync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="同步加载广告"></Button>
 
     <Button
         android:id="@+id/btn_show"

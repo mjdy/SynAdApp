@@ -8,7 +8,7 @@
 ### 依赖
 
  ```
- 		implementation 'com.syn.ad:sdk:1.0.6.bd'
+ 		implementation 'cn.cusky.ad:sdk:1.0.7.bd'
  ```
 
 
@@ -26,22 +26,34 @@ application里调用
 
 ## 加载广告
 
+### 同步
 
 
 ```
-        SynAdConfig synAdConfig = new SynAdConfig(activity, "3", SynAdType.DRAW);
-        SynAd.loadAd(synAdConfig, new SynAdLoadListener() {
-            @Override
-            public void onAdLoadSuccess(List<SynAdView> adViewList) {
-                synAdView = adViewList.get(0);
-                SynAdRenderModel renderModel = synAdView.getAdData(); // 获取物料
-            }
 
-            @Override
-            public void onAdLoadFail(SynErrorModel synErrorModel) {
-                super.onAdLoadFail(synErrorModel);
-            }
-        });
+			SynAdConfig synAdConfig = new SynAdConfig( activity,"3", SynAdType.DRAW);
+			synAdInstance = SynAd.loadAdSync(synAdConfig);
+			
+```
+
+### 异步
+
+```
+
+			SynAdConfig synAdConfig = new SynAdConfig(activity, "3", SynAdType.DRAW);
+			SynAd.loadAd(synAdConfig, new SynAdLoadListener() {
+			    @Override
+			    public void onAdLoadSuccess(List<SynAdView> adViewList) {
+			         synAdInstance = adInstanceList.get(0);
+			         SynAdRenderModel renderModel = synAdInstance.getAdData(); // 获取物料
+			    }
+			
+			    @Override
+			    public void onAdLoadFail(SynErrorModel synErrorModel) {
+			        super.onAdLoadFail(synErrorModel);
+			    }
+			});
+			
 
 ```
 
@@ -50,15 +62,14 @@ application里调用
 ### 广告展示时，务必调用
 
 ```
-	 synAdView.callbackShow();
+		synAdInstance.callbackShow();
 ```
 
-### 广告点击时，务必调用
+### 绑定广告展示view，处理点击事件
 ```
-	 synAdView.callbackClick(synClickModel);
+		synAdInstance.bindView(ad_view_contianer);
 ```
 
-> synClickModel 为获取点击的down\_x,up\_x ,可参见项目sample
 
 ### SynAdRenderModel 物料model
  字段  |说明 | 备注
@@ -103,6 +114,10 @@ adType | 是| 广告位类型 | draw
 
 
 # 更改记录
+## 1.0.7.bd
+1. 更改包名
+2. 提供同步方法
+3. 封装点击事件
 
 ## 1.0.6.bd
 1. 提供物料

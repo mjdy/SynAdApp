@@ -28,7 +28,9 @@ android {
 
 dependencies {
 
-    implementation 'com.syn.ad:sdk:1.0.6.bd'
+    implementation 'cn.cusky.ad:sdk:1.0.7.bd'
+
+    implementation 'com.github.bumptech.glide:glide:4.16.0' // 用于图片加载
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
 }
