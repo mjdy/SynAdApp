@@ -8,7 +8,7 @@
 ### 依赖
 
  ```
- 		implementation 'cn.cusky.ad:sdk:1.0.7.bd'
+ 		implementation 'cn.cusky.ad:sdk:1.0.8.bd'
  ```
 
 
@@ -114,6 +114,9 @@ adType | 是| 广告位类型 | draw
 
 
 # 更改记录
+## 1.0.8.bd
+1. 修复 query
+2. 
 ## 1.0.7.bd
 1. 更改包名
 2. 提供同步方法
