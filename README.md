@@ -8,7 +8,7 @@
 ### 依赖
 
  ```
- 		implementation 'cn.cusky.ad:sdk:1.0.8.bd'
+ 		implementation 'cn.cusky.ad:sdk:1.0.9.bd'
  ```
 
 
@@ -72,14 +72,15 @@ application里调用
 
 
 ### SynAdRenderModel 物料model
- 字段  |说明 | 备注
----| --- | --- 
-title| 标题 |
-desc | 简介|
-source | 广告源| 京东
-imgUrl | 图片url|
-logoUrl | logoUrl|
-videoModel | 视频物料| SynAdRenderVideoModel
+ 字段  | 说明      | 备注
+---|---------| --- 
+title| 标题      |
+desc | 简介      |
+source | 广告源     | 京东
+imgUrl | 图片url   |
+logoUrl | logoUrl |
+price | 价格      | 单位是分
+videoModel | 视频物料    | SynAdRenderVideoModel
 
 #### SynAdRenderVideoModel 物料视频model
 
@@ -114,9 +115,13 @@ adType | 是| 广告位类型 | draw
 
 
 # 更改记录
+## 1.0.9.bd
+1. sdk最低支持到22
+2. 返回物料增加price
+
 ## 1.0.8.bd
 1. 修复 query
-2. 
+
 ## 1.0.7.bd
 1. 更改包名
 2. 提供同步方法
