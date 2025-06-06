@@ -8,7 +8,7 @@
 ### 依赖
 
  ```
- 		implementation 'cn.cusky.ad:sdk:1.0.9.bd'
+ 		implementation 'cn.cusky.ad:sdk:1.1.0'
  ```
 
 
