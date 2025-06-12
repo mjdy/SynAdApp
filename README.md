@@ -8,7 +8,7 @@
 ### 依赖
 
  ```
- 		implementation 'cn.cusky.ad:sdk:1.1.0'
+ 		implementation 'cn.cusky.ad:sdk:1.1.1'
  ```
 
 
@@ -21,6 +21,10 @@ application里调用
         synSdkConfig.setOaid("your oaid"); // 务必传入oaid
         SynAd.init(this, "9xf1IfFT", synSdkConfig);
 ```
+
+        // 隐私权限设置。 1是允许，0是拒绝。 默认均是不允许。如果有些字段拒绝sdk获取，建议手动传入
+        synSdkConfig.setCanUsePhoneState(SynSdkConfig.PERMISSION_ON);
+        synSdkConfig.setCanUseAppList(SynSdkConfig.PERMISSION_OFF);
 
 > bd版本移除了获取oaid，所以oaid务必要传入
 
@@ -115,6 +119,9 @@ adType | 是| 广告位类型 | draw
 
 
 # 更改记录
+
+## 1.1.1
+1. 默认不获取Android id等信息
 
 ## 1.1.0
 1. 更改版本号
