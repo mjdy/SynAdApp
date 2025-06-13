@@ -120,6 +120,9 @@ adType | 是| 广告位类型 | draw
 
 # 更改记录
 
+## 1.1.3
+1. delete trustAllHosts
+
 ## 1.1.2
 1. add 加解密
 
