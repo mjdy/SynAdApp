@@ -106,6 +106,7 @@ public class MainActivity extends Activity {
             public void onAdLoadFail(SynErrorModel synErrorModel) {
                 super.onAdLoadFail(synErrorModel);
                 // 请求失败
+                Toast.makeText(MainActivity.this, "请求广告失败", Toast.LENGTH_LONG).show();
             }
         });
     }

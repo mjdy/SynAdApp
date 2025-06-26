@@ -42,10 +42,18 @@ public class MainApplication extends Application {
 
     public void initOtherSdk(){
         SynSdkConfig synSdkConfig = new SynSdkConfig();
-        // 隐私权限设置。 1是允许，0是拒绝。 默认均是允许。如果有些字段拒绝sdk获取，建议手动传入
-        synSdkConfig.setCanUsePhoneState(SynSdkConfig.PERMISSION_ON);
-        synSdkConfig.setCanUseAppList(SynSdkConfig.PERMISSION_OFF);
+        // 隐私权限设置。 1是允许，0是拒绝。 默认均是不允许。如果有些字段拒绝sdk获取，建议手动传入
 
+        //  IMEI（硬件序列号）权限设置。 1是允许，0是拒绝。
+        synSdkConfig.setCanUsePhoneState(SynSdkConfig.PERMISSION_OFF);
+        //  ANDROID_ID权限设置。 1是允许，0是拒绝。
+        synSdkConfig.setCanUseAndroidId(SynSdkConfig.PERMISSION_OFF);
+        //  MacAddress（BSSID，SSID）权限设置。 1是允许，0是拒绝。
+        synSdkConfig.setCanUseMacAddress(SynSdkConfig.PERMISSION_OFF);
+        // 获取wifi状态权限设置。 1是允许，0是拒绝。
+        synSdkConfig.setCanUseWifiState(SynSdkConfig.PERMISSION_OFF);
+        // IMSI权限设置。 1是允许，0是拒绝。
+        synSdkConfig.setCanUseImsi(SynSdkConfig.PERMISSION_OFF);
         synSdkConfig.setOaid("your oaid"); // 务必传入
 
 //        synSdkConfig.setCanUseAndroidId(SynSdkConfig.PERMISSION_OFF); // 拒绝androidId获取
