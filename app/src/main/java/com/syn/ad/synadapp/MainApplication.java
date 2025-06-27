@@ -2,8 +2,9 @@ package com.syn.ad.synadapp;
 
 import android.app.Application;
 
-import com.syn.ad.sdk.SynAd;
-import com.syn.ad.sdk.model.SynSdkConfig;
+import com.syn.ad.sdk.FBirdAd;
+import com.syn.ad.sdk.model.FBirdSdkConfig;
+
 
 public class MainApplication extends Application {
 
@@ -11,12 +12,13 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        SynSdkConfig synSdkConfig = new SynSdkConfig();
+        FBirdSdkConfig fBirdSdkConfig = new FBirdSdkConfig();
         // 隐私权限设置。 1是允许，0是拒绝。 默认均是允许
-        synSdkConfig.setCanUsePhoneState(SynSdkConfig.PERMISSION_ON);
-        synSdkConfig.setCanUseAppList(SynSdkConfig.PERMISSION_OFF);
-        synSdkConfig.setOaid("your oaid");
+        fBirdSdkConfig.setUseAndroidId(FBirdSdkConfig.PERMISSION_ON);
+        fBirdSdkConfig.setUseAppList(FBirdSdkConfig.PERMISSION_OFF);
+        fBirdSdkConfig.setUseMacAddress(FBirdSdkConfig.PERMISSION_OFF);
+//        synSdkConfig.setOaid("your oaid");
 
-        SynAd.init(this, "appId", synSdkConfig);
+        FBirdAd.initSdkConfig(this, "appId", fBirdSdkConfig);
     }
 }
