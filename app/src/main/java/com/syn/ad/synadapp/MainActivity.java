@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
 
     FrameLayout fl_container; //广告容器
     FBirdAdView fBirdAdView;
+    PermissionStatementDialog permissionStatementDialog;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,6 +34,23 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         fl_container = findViewById(R.id.fl_container);
+
+        boolean privacyAgree = SPUtils.getInstance().getBoolean(MainApplication.PRIVACY_AGREE, false);
+        if (!privacyAgree) {
+            permissionStatementDialog = new PermissionStatementDialog(this, new PermissionStatementDialog.ConfirmedCallback() {
+                @Override
+                public void onConfirmed() {
+                    SPUtils.getInstance().put(MainApplication.PRIVACY_AGREE, true);
+                    MainApplication.get().initOtherSdk();
+                }
+
+                @Override
+                public void onCancel() {
+
+                }
+            });
+            permissionStatementDialog.show();
+        }
         findViewById(R.id.btn_sp).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
